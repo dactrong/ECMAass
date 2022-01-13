@@ -1,5 +1,5 @@
 import Navigo from "navigo";
-
+import NewsDetailPage from "./page/newsDetail";
 import AboutPage from "./page/about";
 import ContactPage from "./page/contact";
 import HomePage from "./page/home";
@@ -25,6 +25,10 @@ router.on({
     },
     "/contact": () => {
         print(ContactPage.render());
+    },
+    "/news/:id": (value) => {
+        console.log(value.data.id);
+        print(NewsDetailPage.render(value.data.id));
     },
 });
 router.notFound(() => print(NotFoundPage.render()));
